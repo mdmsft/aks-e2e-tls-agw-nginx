@@ -1,0 +1,9 @@
+controller:
+  service:
+    annotations:
+      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+      service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "snet-aks-sys"
+    externalTrafficPolicy: Local
+    loadBalancerIP: 0.0.0.0
+  extraArgs:
+    enable-ssl-passthrough: true

@@ -1,0 +1,31 @@
+replicaCount: 1
+
+image:
+  registry: ms.azurecr.io
+  repository: hello-world-dotnet
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5001
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 9
+  targetCPUUtilizationPercentage: 75
+  targetMemoryUtilizationPercentage: 90
+
+keyVaultName: default
+keyVaultTenant: default
+clientId: default
+hostname: foo.bar
+certificateName: default
